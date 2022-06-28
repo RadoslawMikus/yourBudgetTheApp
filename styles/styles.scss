@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+}
+
+.yourBudget {
+  height: 50px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 30px 30px;
+  }
+
+  li {
+    cursor: pointer;
+    margin: 20px 10px;
+    opacity: 0.7;
+    transition: opacity 0.4s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

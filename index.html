@@ -8,6 +8,37 @@
     <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <input type="number" placeholder="Set budget" id="setBudget" />
+          </li>
+          <li class="save">SET BUDGET</li>
+          <li class="reset">RESET</li>
+        </ul>
+        <ul>
+          <li class="showIncomes">SHOW INCOMES</li>
+          <li class="showExpenses">SHOW EXPENSES</li>
+          <li class="showAll">SHOW ALL</li>
+        </ul>
+      </nav>
+      <div class="yourBudget"></div>
+
+      <input type="date" placeholder="Date" id="date" max="2999-12-31" /><input
+        type="text"
+        placeholder="Title"
+        id="title"
+      /><input type="number" placeholder="Amount" id="amount" />
+      <button class="income">ADD INCOME</button>
+      <button class="expense">ADD EXPENSE</button>
+      <div class="operations">
+        <table>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
     <script src="./scripts/app.js"></script>
   </body>
 </html>
