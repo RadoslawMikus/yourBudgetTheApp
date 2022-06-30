@@ -5,38 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
     <div class="container">
-      <nav>
-        <ul>
-          <li>
-            <input type="number" placeholder="Set budget" id="setBudget" />
-          </li>
-          <li class="save">SET BUDGET</li>
-          <li class="reset">RESET</li>
-        </ul>
-        <ul>
-          <li class="showIncomes">SHOW INCOMES</li>
-          <li class="showExpenses">SHOW EXPENSES</li>
-          <li class="showAll">SHOW ALL</li>
-        </ul>
-      </nav>
-      <div class="yourBudget"></div>
+      <header>
+        <nav>
+          <ul class="setBudgetArea">
+            <li class="d-flex">
+              <input
+                type="number"
+                placeholder="Your budget amount"
+                id="setBudget"
+                tabindex="1"
+              />
+              <select tabindex="1">
+                <option>$</option>
+                <option>€</option>
+                <option>£</option>
+                <option>zł</option>
+                <option>kr</option>
+              </select>
+            </li>
+            <li>
+              <button class="save" href="#" tabindex="1">SET BUDGET</button>
+            </li>
+            <li><button class="reset" href="#" tabindex="1">RESET</button></li>
+          </ul>
+          <ul class="filtersArea">
+            <li>
+              <button class="showIncomes" href="#" tabindex="1">
+                SHOW INCOMES
+              </button>
+            </li>
+            <li>
+              <button class="showExpenses" href="#" tabindex="1">
+                SHOW EXPENSES
+              </button>
+            </li>
+            <li>
+              <button class="showAll" href="#" tabindex="1">SHOW ALL</button>
+            </li>
+          </ul>
+        </nav>
+        <div class="yourBudget">
+          <span class="title">yourBudget - the App!</span>
+        </div>
+      </header>
 
-      <input type="date" placeholder="Date" id="date" max="2999-12-31" /><input
-        type="text"
-        placeholder="Title"
-        id="title"
-      /><input type="number" placeholder="Amount" id="amount" />
-      <button class="income">ADD INCOME</button>
-      <button class="expense">ADD EXPENSE</button>
-      <div class="operations">
-        <table>
-          <tbody></tbody>
-        </table>
-      </div>
+      <main>
+        <div class="addOperationArea">
+          <input
+            type="date"
+            placeholder="MM/DD/YYYY"
+            id="date"
+            max="2999-12-31"
+          /><input type="text" placeholder="Title" id="title" /><input
+            type="number"
+            placeholder="Amount"
+            id="amount"
+          />
+          <span class="addOperation">
+            <button class="income">ADD INCOME</button>
+            <button class="expense">ADD EXPENSE</button>
+          </span>
+        </div>
+        <div class="operations">
+          <table>
+            <tbody></tbody>
+          </table>
+        </div>
+      </main>
     </div>
 
     <script src="./scripts/app.js"></script>

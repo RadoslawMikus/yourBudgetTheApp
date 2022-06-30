@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  // border: 1px solid white;
 }
 html {
   height: 100%;
@@ -12,17 +13,157 @@ body {
   color: white;
   background-image: url("../assets/bg.jpg");
   background-size: cover;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-attachment: fixed;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header,
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   background-color: rgba(0, 0, 0, 0.6);
-  height: 100%;
+  background-size: cover;
+  min-height: 100%;
   width: 100%;
 }
 
+button,
+input,
+option {
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
+  opacity: 0.7;
+  transition: opacity 0.4s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:disabled {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.setBudgetArea,
+.filtersArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  font-size: 14px;
+}
+
+#setBudget {
+  height: 25px;
+  width: 200px;
+  border-radius: 10px 0 0 10px;
+  border: 0;
+  padding: 5px;
+
+  &:disabled {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+#date,
+#title,
+#amount {
+  height: 25px;
+  width: 200px;
+  padding: 5px;
+  margin: 50px 2px;
+  border-radius: 10px;
+  border: 0;
+  color: rgb(105, 105, 105);
+}
+
+.d-flex {
+  display: flex;
+}
+
+select {
+  height: 35px;
+  width: 30px;
+  border-radius: 0 10px 10px 0;
+  border: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-appearance: none;
+  text-align-last: right;
+  direction: rtl;
+  padding-right: 12px;
+
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.save {
+  background-color: rgb(108, 108, 10);
+  border: 2px solid white {
+    radius: 5px;
+  }
+  padding: 5px 10px;
+
+  &:disabled {
+    background-color: grey;
+  }
+}
+
+.addOperation {
+  margin-left: 20px;
+
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 2px solid white {
+      radius: 5px;
+    }
+    &:first-of-type {
+      background-color: rgba(0, 255, 51, 0.5);
+    }
+
+    &:last-of-type {
+      background-color: rgba(255, 0, 51, 0.5);
+    }
+  }
+}
+
 .yourBudget {
-  height: 50px;
+  padding: 15px;
+  border: 3px solid white;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 32px;
+}
+
+.title {
+  font-family: "Annie Use Your Telescope", cursive;
+  line-height: 90%;
 }
 
 nav {
@@ -36,13 +177,21 @@ nav {
   }
 
   li {
-    cursor: pointer;
-    margin: 20px 10px;
-    opacity: 0.7;
-    transition: opacity 0.4s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-    }
+    margin: 20px 15px;
   }
+}
+
+table {
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+td,
+th {
+  width: 200px;
+  height: 40px;
+  padding: 5px 10px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.2);
 }

@@ -8,8 +8,10 @@ const showExpenses = document.querySelector(".showExpenses");
 const showAll = document.querySelector(".showAll");
 const operationsDiv = document.querySelector(".operations table tbody");
 const setBudgetInput = document.querySelector("#setBudget");
+const currencySelect = document.querySelector("select");
 
 let money = 0;
+let currency = currencySelect.value;
 
 const resetApp = () => {
   setBudgetInput.value = "";
@@ -18,9 +20,10 @@ const resetApp = () => {
   title.value = "";
   operationsDiv.innerHTML = "";
   money = 0;
-  yourBudget.textContent = "";
+  yourBudget.innerHTML = `<span class="title">yourBudget - the App!</span>`;
   setBudgetInput.removeAttribute("disabled");
   setBudgetButton.removeAttribute("disabled");
+  currencySelect.removeAttribute("disabled");
 };
 
 resetButton.addEventListener("click", resetApp);
@@ -28,9 +31,10 @@ resetButton.addEventListener("click", resetApp);
 const setBudget = () => {
   if (setBudgetInput.value !== "") {
     money += parseInt(setBudgetInput.value);
-    yourBudget.textContent = money;
+    yourBudget.textContent = money + currency;
     setBudgetInput.setAttribute("disabled", "disabled");
     setBudgetButton.setAttribute("disabled", "disabled");
+    currencySelect.setAttribute("disabled", "disabled");
     return setBudgetInput.value;
   } else {
     alert("Please insert your primary budget");
@@ -54,9 +58,18 @@ const addOperation = (type) => {
         type: type,
       },
     ];
-    operationsDiv.innerHTML = "";
+    operationsDiv.innerHTML = `<tr>
+    <th>Date</th>
+    <th>Title</th>
+    <th>Amount</th>
+    <th>Type</th>
+  </tr>`;
     for (let i = 0; i < operations.length; i++) {
-      operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${operations[i].title}</td><td>${operations[i].amount}</td><td>${operations[i].type}</td></tr>`;
+      operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${
+        operations[i].title
+      }</td><td>${operations[i].amount + currency}</td><td>${
+        operations[i].type
+      }</td></tr>`;
     }
 
     if (type === "expense") {
@@ -65,7 +78,7 @@ const addOperation = (type) => {
     if (type === "income") {
       money += parseInt(amount.value);
     }
-    yourBudget.textContent = money;
+    yourBudget.textContent = money + currency;
     date.value = "";
     amount.value = "";
     title.value = "";
@@ -87,9 +100,18 @@ const filterArr = (type) => {
     return oper.type === type;
   });
 
-  operationsDiv.innerHTML = "";
+  operationsDiv.innerHTML = `              <tr>
+  <th>Date</th>
+  <th>Title</th>
+  <th>Amount</th>
+  <th>Type</th>
+</tr>`;
   for (let i = 0; i < filteredArray.length; i++) {
-    operationsDiv.innerHTML += `<tr><td>${filteredArray[i].date}</td><td>${filteredArray[i].title}</td><td>${filteredArray[i].amount}</td><td>${filteredArray[i].type}</td></tr>`;
+    operationsDiv.innerHTML += `<tr><td>${filteredArray[i].date}</td><td>${
+      filteredArray[i].title
+    }</td><td>${filteredArray[i].amount + currency}</td><td>${
+      filteredArray[i].type
+    }</td></tr>`;
   }
 };
 
@@ -101,8 +123,21 @@ showIncomes.addEventListener("click", () => {
   filterArr("income");
 });
 showAll.addEventListener("click", () => {
-  operationsDiv.innerHTML = "";
+  operationsDiv.innerHTML = `              <tr>
+  <th>Date</th>
+  <th>Title</th>
+  <th>Amount</th>
+  <th>Type</th>
+</tr>`;
   for (let i = 0; i < operations.length; i++) {
-    operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${operations[i].title}</td><td>${operations[i].amount}</td><td>${operations[i].type}</td></tr>`;
+    operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${
+      operations[i].title
+    }</td><td>${operations[i].amount + currency}</td><td>${
+      operations[i].type
+    }</td></tr>`;
   }
+});
+
+currencySelect.addEventListener("change", () => {
+  currency = currencySelect.value;
 });
