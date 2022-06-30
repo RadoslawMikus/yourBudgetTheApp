@@ -19,7 +19,7 @@
       <header>
         <nav>
           <ul class="setBudgetArea">
-            <li class="d-flex">
+            <li>
               <input
                 type="number"
                 placeholder="Your budget amount"
@@ -63,14 +63,8 @@
       <main>
         <div class="addOperationArea">
           <span>
-            <input
-              type="text"
-              placeholder="Date"
-              maxlength="10"
-              id="date" /><input
-              type="text"
-              placeholder="Title"
-              id="title" /><input
+            <input type="date" id="date" maxlength="10" />
+            <input type="text" placeholder="Title" id="title" /><input
               type="number"
               placeholder="Amount"
               id="amount"
@@ -82,7 +76,7 @@
         </div>
         <div class="operations">
           <div class="tableOverflow">
-            <table cellpadding="5" border="1" cellspacing="0">
+            <table cellpadding="5" cellspacing="0">
               <tbody></tbody>
             </table>
           </div>

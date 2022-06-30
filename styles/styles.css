@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -24,14 +25,6 @@ a {
   color: #fff;
 }
 
-header,
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .container {
   background-color: rgba(0, 0, 0, 0.6);
   background-size: cover;
@@ -44,6 +37,10 @@ input,
 option {
   font-family: "Roboto", sans-serif;
   cursor: pointer;
+}
+
+input {
+  font-size: 14px;
 }
 
 button {
@@ -59,71 +56,6 @@ button:hover {
 }
 button:disabled {
   color: rgba(255, 255, 255, 0.4);
-}
-
-.setBudgetArea,
-.filtersArea {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.setBudgetArea {
-  flex-wrap: wrap;
-}
-.setBudgetArea li:first-of-type {
-  margin: 20px 0 0 0;
-}
-
-.filtersArea {
-  flex-direction: column;
-}
-
-input {
-  font-size: 14px;
-}
-
-#setBudget {
-  height: 35px;
-  width: 100%;
-  border-radius: 10px 0 0 10px;
-  border: 0;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-#setBudget:disabled {
-  color: rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-#date,
-#title,
-#amount {
-  height: 35px;
-  width: 100%;
-  padding: 5px;
-  margin: 3px 0;
-  border-radius: 10px;
-  border: 0;
-  color: rgb(105, 105, 105);
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-#date {
-  margin-top: 20px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-align: left;
-}
-
-input[type=date]:before {
-  color: #aaa;
-  content: attr(placeholder);
-}
-
-.d-flex {
-  display: flex;
-  width: 100%;
 }
 
 select {
@@ -147,6 +79,62 @@ select:disabled {
   color: rgba(255, 255, 255, 0.4);
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+nav ul:last-of-type {
+  margin: 0;
+}
+nav li {
+  margin: 10px 15px;
+}
+
+.setBudgetArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.setBudgetArea li:first-of-type {
+  margin: 20px 0 0 0;
+  display: flex;
+  width: 100%;
+}
+
+.filtersArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#setBudget {
+  height: 35px;
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+  border: 0;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#setBudget:disabled {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .save {
   background-color: rgb(108, 108, 10);
   border: 2px solid white;
@@ -155,6 +143,50 @@ select:disabled {
 }
 .save:disabled {
   background-color: grey;
+}
+
+.yourBudget {
+  margin-top: 20px;
+  padding: 15px;
+  border: 3px solid white;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 32px;
+}
+
+.title {
+  font-family: "Annie Use Your Telescope", cursive;
+  line-height: 90%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#date,
+#title,
+#amount {
+  height: 35px;
+  width: 100%;
+  padding: 5px;
+  margin: 3px 0;
+  border-radius: 10px;
+  border: 0;
+  color: rgb(105, 105, 105);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#date {
+  margin-top: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+#date::before {
+  content: "Date ";
+  opacity: 0.5;
 }
 
 .addOperation {
@@ -180,40 +212,10 @@ select:disabled {
   width: 80%;
 }
 
-.yourBudget {
-  margin-top: 20px;
-  padding: 15px;
-  border: 3px solid white;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-size: 32px;
-}
-
-.title {
-  font-family: "Annie Use Your Telescope", cursive;
-  line-height: 90%;
-}
-
-nav {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-nav ul {
-  display: flex;
-  list-style-type: none;
-}
-nav ul:last-of-type {
-  margin: 0;
-}
-nav li {
-  margin: 10px 15px;
-}
-
 table {
   background-color: rgba(0, 0, 0, 0.2);
   text-align: left;
+  width: 100%;
 }
 
 td,
@@ -235,49 +237,74 @@ tr:nth-child(even) {
   margin: 50px 0 40px;
 }
 
-#date::placeholder, #date::-webkit-input-placeholder, #date::-moz-placeholder, #date:-ms-input-placeholder, #date:-moz-placeholder {
-  opacity: 1 !important;
-  color: black !important;
-}
-
-@media only screen and (min-width: 1100px) {
-  .tableOverflow {
-    justify-content: center;
-  }
-}
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 543px) {
   nav {
+    width: 90%;
+  }
+
+  .filtersArea {
     flex-direction: row;
   }
-  nav ul {
-    margin: 30px 30px;
-  }
-  nav ul:last-of-type {
-    margin: 30px 30px;
-  }
-  nav li {
-    margin: 20px 15px;
-  }
 
-  .yourBudget {
-    padding: 15px;
+  .addOperationArea {
+    width: 90%;
+  }
+  .addOperationArea span:first-of-type {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
   }
 
   #date,
 #title,
 #amount {
-    width: 200px;
+    margin: 30px 3px 5px;
   }
 
-  #setBudget {
-    width: 200px;
+  .setBudgetArea {
+    margin-top: 20px;
+  }
+  .setBudgetArea li:first-of-type {
+    margin-top: 0;
+    width: 50%;
+    max-width: 200px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  table {
+    width: 60vw;
+  }
+
+  .tableOverflow {
+    justify-content: center;
   }
 
   .addOperationArea {
     flex-direction: row;
+    margin-top: 30px;
   }
-  .addOperationArea span {
-    display: flex;
-    flex-direction: row;
+
+  .addOperation {
+    margin-top: 0;
+  }
+  .addOperation button:first-of-type {
+    margin: 0 3px 0 20px;
+  }
+
+  .setBudgetArea li:first-of-type {
+    margin-top: 0;
+  }
+
+  #date,
+#title,
+#amount {
+    margin: 0 3px;
+  }
+
+  .addOperationArea {
+    width: 90%;
+  }
+  .addOperationArea span:first-of-type {
+    width: 60%;
   }
 }
