@@ -62,25 +62,30 @@
 
       <main>
         <div class="addOperationArea">
-          <input
-            type="date"
-            placeholder="MM/DD/YYYY"
-            id="date"
-            max="2999-12-31"
-          /><input type="text" placeholder="Title" id="title" /><input
-            type="number"
-            placeholder="Amount"
-            id="amount"
-          />
+          <span>
+            <input
+              type="text"
+              placeholder="Date"
+              maxlength="10"
+              id="date" /><input
+              type="text"
+              placeholder="Title"
+              id="title" /><input
+              type="number"
+              placeholder="Amount"
+              id="amount"
+          /></span>
           <span class="addOperation">
             <button class="income">ADD INCOME</button>
             <button class="expense">ADD EXPENSE</button>
           </span>
         </div>
         <div class="operations">
-          <table>
-            <tbody></tbody>
-          </table>
+          <div class="tableOverflow">
+            <table cellpadding="5" border="1" cellspacing="0">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>

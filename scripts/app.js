@@ -41,7 +41,26 @@ const setBudget = () => {
   }
 };
 
-let operations = [];
+let operations = [
+  {
+    date: "2022-01-24",
+    amount: "321325",
+    title: "dasdsad sd sad asd aseqwerfds ad a",
+    type: "income",
+  },
+  {
+    date: "2022-01-24",
+    amount: "433243123",
+    title: "vcxooi odif oirewnk ",
+    type: "expense",
+  },
+  {
+    date: "2022-01-24",
+    amount: "321325",
+    title: "dasdsad sd sad asd aseqwerfds ad a",
+    type: "income",
+  },
+];
 
 const addOperation = (type) => {
   const date = document.querySelector("#date");
