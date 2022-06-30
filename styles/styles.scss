@@ -1,3 +1,8 @@
+@mixin flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 // -----------------------
 // GENERAL
 // -----------------------
@@ -12,11 +17,13 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: black;
+  background: {
+    color: black;
+    image: url("../assets/bg.jpg");
+    size: cover;
+    attachment: fixed;
+  }
   color: white;
-  background-image: url("../assets/bg.jpg");
-  background-size: cover;
-  background-attachment: fixed;
   font-family: "Roboto", sans-serif;
 }
 
@@ -26,8 +33,10 @@ a {
 }
 
 .container {
-  background-color: rgba(0, 0, 0, 0.6);
-  background-size: cover;
+  background: {
+    color: rgba(0, 0, 0, 0.6);
+    size: cover;
+  }
   min-height: 100%;
   width: 100%;
 }
@@ -63,17 +72,19 @@ button {
 select {
   height: 35px;
   width: 30px;
-  border-radius: 0 10px 10px 0;
-  border: 0;
-  text-align: center;
+  text-align: center {
+    last: right;
+  }
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   -ms-appearance: none;
-  text-align-last: right;
   direction: rtl;
   padding-right: 12px;
+  border: 0 {
+    radius: 0 10px 10px 0;
+  }
 
   &:disabled {
     background-color: rgba(255, 255, 255, 0.3);
@@ -85,9 +96,7 @@ select {
 // HEADER
 // -----------------------
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox;
   flex-direction: column;
 }
 
@@ -110,9 +119,7 @@ nav {
 }
 
 .setBudgetArea {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox;
   flex-wrap: wrap;
   li {
     &:first-of-type {
@@ -124,17 +131,16 @@ nav {
 }
 
 .filtersArea {
-  display: flex;
+  @include flexbox;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #setBudget {
   height: 35px;
   width: 100%;
-  border-radius: 10px 0 0 10px;
-  border: 0;
+  border: 0 {
+    radius: 10px 0 0 10px;
+  }
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.9);
 
@@ -159,8 +165,9 @@ nav {
 .yourBudget {
   margin-top: 20px;
   padding: 15px;
-  border: 3px solid white;
-  border-radius: 10px;
+  border: 3px solid white {
+    radius: 10px;
+  }
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 32px;
 }
@@ -174,9 +181,7 @@ nav {
 // MAIN
 // -----------------------
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox;
   flex-direction: column;
 }
 
@@ -187,8 +192,9 @@ main {
   width: 100%;
   padding: 5px;
   margin: 3px 0;
-  border-radius: 10px;
-  border: 0;
+  border: 0 {
+    radius: 10px;
+  }
   color: rgb(105, 105, 105);
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -222,10 +228,8 @@ main {
 }
 
 .addOperationArea {
-  display: flex;
+  @include flexbox;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 80%;
 }
 
@@ -299,7 +303,11 @@ tr:nth-child(even) {
 
   .addOperationArea {
     flex-direction: row;
+    width: 90%;
     margin-top: 30px;
+    span:first-of-type {
+      width: 60%;
+    }
   }
 
   .addOperation {
@@ -319,12 +327,5 @@ tr:nth-child(even) {
   #title,
   #amount {
     margin: 0 3px;
-  }
-
-  .addOperationArea {
-    width: 90%;
-    span:first-of-type {
-      width: 60%;
-    }
   }
 }

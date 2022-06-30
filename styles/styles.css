@@ -13,10 +13,10 @@ body {
   height: 100%;
   width: 100%;
   background-color: black;
-  color: white;
   background-image: url("../assets/bg.jpg");
   background-size: cover;
   background-attachment: fixed;
+  color: white;
   font-family: "Roboto", sans-serif;
 }
 
@@ -61,18 +61,18 @@ button:disabled {
 select {
   height: 35px;
   width: 30px;
-  border-radius: 0 10px 10px 0;
-  border: 0;
   text-align: center;
+  -moz-text-align-last: right;
+       text-align-last: right;
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   -ms-appearance: none;
-  -moz-text-align-last: right;
-       text-align-last: right;
   direction: rtl;
   padding-right: 12px;
+  border: 0;
+  border-radius: 0 10px 10px 0;
 }
 select:disabled {
   background-color: rgba(255, 255, 255, 0.3);
@@ -117,16 +117,16 @@ nav li {
 
 .filtersArea {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 #setBudget {
   height: 35px;
   width: 100%;
-  border-radius: 10px 0 0 10px;
   border: 0;
+  border-radius: 10px 0 0 10px;
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -173,8 +173,8 @@ main {
   width: 100%;
   padding: 5px;
   margin: 3px 0;
-  border-radius: 10px;
   border: 0;
+  border-radius: 10px;
   color: rgb(105, 105, 105);
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -206,9 +206,9 @@ main {
 
 .addOperationArea {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 80%;
 }
 
@@ -281,7 +281,11 @@ tr:nth-child(even) {
 
   .addOperationArea {
     flex-direction: row;
+    width: 90%;
     margin-top: 30px;
+  }
+  .addOperationArea span:first-of-type {
+    width: 60%;
   }
 
   .addOperation {
@@ -299,12 +303,5 @@ tr:nth-child(even) {
 #title,
 #amount {
     margin: 0 3px;
-  }
-
-  .addOperationArea {
-    width: 90%;
-  }
-  .addOperationArea span:first-of-type {
-    width: 60%;
   }
 }

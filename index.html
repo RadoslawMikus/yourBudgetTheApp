@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>yourBudget - the App!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +15,9 @@
   </head>
   <body>
     <div class="container">
+      <!-- ---------------------
+      SET YOUR BUDGET 
+      ---------------------- -->
       <header>
         <nav>
           <ul class="setBudgetArea">
@@ -35,31 +37,36 @@
               </select>
             </li>
             <li>
-              <button class="save" href="#" tabindex="1">SET BUDGET</button>
+              <button class="save" tabindex="1">SET BUDGET</button>
             </li>
-            <li><button class="reset" href="#" tabindex="1">RESET</button></li>
+            <li><button class="reset" tabindex="1">RESET</button></li>
           </ul>
+          <!-- ---------------------
+      SHOW INCOMES AND EXPENSES 
+      ---------------------- -->
           <ul class="filtersArea">
             <li>
-              <button class="showIncomes" href="#" tabindex="1">
-                SHOW INCOMES
-              </button>
+              <button class="showIncomes" tabindex="1">SHOW INCOMES</button>
             </li>
             <li>
-              <button class="showExpenses" href="#" tabindex="1">
-                SHOW EXPENSES
-              </button>
+              <button class="showExpenses" tabindex="1">SHOW EXPENSES</button>
             </li>
             <li>
-              <button class="showAll" href="#" tabindex="1">SHOW ALL</button>
+              <button class="showAll" tabindex="1">SHOW ALL</button>
             </li>
           </ul>
         </nav>
+        <!-- ---------------------
+      YOUR BUDGET AND TITLE 
+      ---------------------- -->
         <div class="yourBudget">
           <span class="title">yourBudget - the App!</span>
         </div>
       </header>
 
+      <!-- ---------------------
+      ADD OPERATION 
+      ---------------------- -->
       <main>
         <div class="addOperationArea">
           <span>
@@ -74,6 +81,9 @@
             <button class="expense">ADD EXPENSE</button>
           </span>
         </div>
+        <!-- ---------------------
+      DISPLAY ALL OPERATIONS 
+      ---------------------- -->
         <div class="operations">
           <div class="tableOverflow">
             <table cellpadding="5" cellspacing="0">
