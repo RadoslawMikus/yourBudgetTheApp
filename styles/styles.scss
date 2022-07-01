@@ -4,6 +4,23 @@
   align-items: center;
 }
 // -----------------------
+// COLORS
+// -----------------------
+$buttonDisabled: rgba(255, 255, 255, 0.4);
+$selectBg: rgba(255, 255, 255, 0.8);
+$selectDisabledBg: rgba(255, 255, 255, 0.3);
+$selectDisabled: rgba(255, 255, 255, 0.4);
+$saveBg: rgb(108, 108, 10);
+$saveDisabledBg: #808080;
+$yourBudgetBg: rgba(255, 255, 255, 0.2);
+$inputsColor: rgb(105, 105, 105);
+$inputsBg: rgba(255, 255, 255, 0.9);
+$incomeButton: rgba(0, 255, 51, 0.5);
+$expenseButton: rgba(255, 0, 51, 0.5);
+$tableBg: rgba(0, 0, 0, 0.2);
+$trEvenBg: rgba(128, 128, 128, 0.2);
+
+// -----------------------
 // GENERAL
 // -----------------------
 * {
@@ -18,12 +35,12 @@ body {
   height: 100%;
   width: 100%;
   background: {
-    color: black;
+    color: #000;
     image: url("../assets/bg.jpg");
     size: cover;
     attachment: fixed;
   }
-  color: white;
+  color: #fff;
   font-family: "Roboto", sans-serif;
 }
 
@@ -56,7 +73,7 @@ button {
   border: 0;
   background-color: transparent;
   font-size: 16px;
-  color: white;
+  color: #fff;
   opacity: 0.7;
   transition: opacity 0.4s ease-in-out;
 
@@ -65,7 +82,7 @@ button {
   }
 
   &:disabled {
-    color: rgba(255, 255, 255, 0.4);
+    color: $buttonDisabled;
   }
 }
 
@@ -75,7 +92,7 @@ select {
   text-align: center {
     last: right;
   }
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: $selectBg;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -87,8 +104,8 @@ select {
   }
 
   &:disabled {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.4);
+    background-color: $selectDisabledBg;
+    color: $selectDisabled;
   }
 }
 
@@ -145,30 +162,30 @@ nav {
   background-color: rgba(255, 255, 255, 0.9);
 
   &:disabled {
-    color: rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.4);
+    color: $selectDisabled;
+    background-color: $selectDisabled;
   }
 }
 
 .save {
-  background-color: rgb(108, 108, 10);
-  border: 2px solid white {
+  background-color: $saveBg;
+  border: 2px solid #fff {
     radius: 5px;
   }
   padding: 5px 10px;
 
   &:disabled {
-    background-color: grey;
+    background-color: $saveDisabledBg;
   }
 }
 
 .yourBudget {
   margin-top: 20px;
   padding: 15px;
-  border: 3px solid white {
+  border: 3px solid #fff {
     radius: 10px;
   }
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: $yourBudgetBg;
   font-size: 32px;
 }
 
@@ -195,8 +212,8 @@ main {
   border: 0 {
     radius: 10px;
   }
-  color: rgb(105, 105, 105);
-  background-color: rgba(255, 255, 255, 0.9);
+  color: $inputsColor;
+  background-color: $inputsBg;
 }
 
 #date {
@@ -214,15 +231,15 @@ main {
   margin-top: 10px;
   button {
     padding: 5px 10px;
-    border: 2px solid white {
+    border: 2px solid #fff {
       radius: 5px;
     }
     &:first-of-type {
-      background-color: rgba(0, 255, 51, 0.5);
+      background-color: $incomeButton;
     }
 
     &:last-of-type {
-      background-color: rgba(255, 0, 51, 0.5);
+      background-color: $expenseButton;
     }
   }
 }
@@ -234,7 +251,7 @@ main {
 }
 
 table {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: $tableBg;
   text-align: left;
   width: 100%;
 }
@@ -247,7 +264,7 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.2);
+  background-color: $trEvenBg;
 }
 
 .tableOverflow {
