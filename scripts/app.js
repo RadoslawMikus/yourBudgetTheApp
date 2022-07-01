@@ -1,3 +1,6 @@
+// ----------------------------
+// DECLARATIONS
+// ----------------------------
 const setBudgetButton = document.querySelector(".save");
 const addIncomeButton = document.querySelector(".income");
 const addExpenseButton = document.querySelector(".expense");
@@ -9,58 +12,52 @@ const showAll = document.querySelector(".showAll");
 const operationsDiv = document.querySelector(".operations table tbody");
 const setBudgetInput = document.querySelector("#setBudget");
 const currencySelect = document.querySelector("select");
+const blockedElements = [setBudgetInput, setBudgetButton, currencySelect];
 
 let money = 0;
 let currency = currencySelect.value;
 
+// ----------------------------
+// RESETTING WHOLE APP
+// ----------------------------
 const resetApp = () => {
-  setBudgetInput.value = "";
-  date.value = "";
-  amount.value = "";
-  title.value = "";
+  const toReset = [setBudgetInput, date, amount, title];
+  toReset.forEach((res) => (res.value = ""));
   operationsDiv.innerHTML = "";
   money = 0;
   yourBudget.innerHTML = `<span class="title">yourBudget - the App!</span>`;
-  setBudgetInput.removeAttribute("disabled");
-  setBudgetButton.removeAttribute("disabled");
-  currencySelect.removeAttribute("disabled");
+  blockedElements.forEach((rem) => rem.removeAttribute("disabled"));
 };
 
 resetButton.addEventListener("click", resetApp);
 
+// ----------------------------
+// SETTING BUDGET
+// ----------------------------
 const setBudget = () => {
   if (setBudgetInput.value !== "") {
     money += parseInt(setBudgetInput.value);
     yourBudget.textContent = money + currency;
-    setBudgetInput.setAttribute("disabled", "disabled");
-    setBudgetButton.setAttribute("disabled", "disabled");
-    currencySelect.setAttribute("disabled", "disabled");
+    blockedElements.forEach((rem) => rem.setAttribute("disabled", "disabled"));
     return setBudgetInput.value;
   } else {
     alert("Please insert your primary budget");
   }
 };
 
-let operations = [
-  {
-    date: "2022-01-24",
-    amount: "321325",
-    title: "dasdsad sd sad asd aseqwerfds ad a",
-    type: "income",
-  },
-  {
-    date: "2022-01-24",
-    amount: "433243123",
-    title: "vcxooi odif oirewnk ",
-    type: "expense",
-  },
-  {
-    date: "2022-01-24",
-    amount: "321325",
-    title: "dasdsad sd sad asd aseqwerfds ad a",
-    type: "income",
-  },
-];
+currencySelect.addEventListener(
+  "change",
+  () => (currency = currencySelect.value)
+);
+
+setBudgetButton.addEventListener("click", setBudget);
+
+// ----------------------------
+// ADDING INCOMES AND EXPENSES
+// ----------------------------
+const tableHeader = `<tr><th>Date</th><th>Title</th><th>Amount</th><th>Type</th></tr>`;
+
+let operations = [];
 
 const addOperation = (type) => {
   const date = document.querySelector("#date");
@@ -77,19 +74,8 @@ const addOperation = (type) => {
         type: type,
       },
     ];
-    operationsDiv.innerHTML = `<tr>
-    <th>Date</th>
-    <th>Title</th>
-    <th>Amount</th>
-    <th>Type</th>
-  </tr>`;
-    for (let i = 0; i < operations.length; i++) {
-      operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${
-        operations[i].title
-      }</td><td>${operations[i].amount + currency}</td><td>${
-        operations[i].type
-      }</td></tr>`;
-    }
+
+    filterArr(operations);
 
     if (type === "expense") {
       money -= parseInt(amount.value);
@@ -102,61 +88,32 @@ const addOperation = (type) => {
     amount.value = "";
     title.value = "";
   } else {
-    alert("Please, input all the data");
+    alert("Please, input all the data (in the correct format)");
   }
 };
+addIncomeButton.addEventListener("click", () => addOperation("income"));
+addExpenseButton.addEventListener("click", () => addOperation("expense"));
 
-setBudgetButton.addEventListener("click", setBudget);
-addIncomeButton.addEventListener("click", () => {
-  addOperation("income");
-});
-addExpenseButton.addEventListener("click", () => {
-  addOperation("expense");
-});
-
-const filterArr = (type) => {
-  const filteredArray = operations.filter((oper) => {
-    return oper.type === type;
+// ---------------------------------
+// DISPLAYING INCOMES/EXPENSES/ALL
+// ---------------------------------
+let incomeExpense = {};
+const filter = (type) => {
+  incomeExpense[type] = operations.filter((operation) => {
+    return operation.type === type;
   });
+  return incomeExpense[type];
+};
 
-  operationsDiv.innerHTML = `              <tr>
-  <th>Date</th>
-  <th>Title</th>
-  <th>Amount</th>
-  <th>Type</th>
-</tr>`;
-  for (let i = 0; i < filteredArray.length; i++) {
-    operationsDiv.innerHTML += `<tr><td>${filteredArray[i].date}</td><td>${
-      filteredArray[i].title
-    }</td><td>${filteredArray[i].amount + currency}</td><td>${
-      filteredArray[i].type
-    }</td></tr>`;
+const filterArr = (arr) => {
+  operationsDiv.innerHTML = tableHeader;
+  for (let i = 0; i < arr.length; i++) {
+    operationsDiv.innerHTML += `<tr><td>${arr[i].date}</td><td>${
+      arr[i].title
+    }</td><td>${arr[i].amount + currency}</td><td>${arr[i].type}</td></tr>`;
   }
 };
 
-showExpenses.addEventListener("click", () => {
-  filterArr("expense");
-});
-
-showIncomes.addEventListener("click", () => {
-  filterArr("income");
-});
-showAll.addEventListener("click", () => {
-  operationsDiv.innerHTML = `              <tr>
-  <th>Date</th>
-  <th>Title</th>
-  <th>Amount</th>
-  <th>Type</th>
-</tr>`;
-  for (let i = 0; i < operations.length; i++) {
-    operationsDiv.innerHTML += `<tr><td>${operations[i].date}</td><td>${
-      operations[i].title
-    }</td><td>${operations[i].amount + currency}</td><td>${
-      operations[i].type
-    }</td></tr>`;
-  }
-});
-
-currencySelect.addEventListener("change", () => {
-  currency = currencySelect.value;
-});
+showIncomes.addEventListener("click", () => filterArr(filter("income")));
+showExpenses.addEventListener("click", () => filterArr(filter("expense")));
+showAll.addEventListener("click", () => filterArr(operations));
