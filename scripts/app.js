@@ -24,6 +24,7 @@ const resetApp = () => {
   const toReset = [setBudgetInput, date, amount, title];
   toReset.forEach((res) => (res.value = ""));
   operationsDiv.innerHTML = "";
+  operations = [];
   money = 0;
   yourBudget.innerHTML = `<span class="title">yourBudget - the App!</span>`;
   blockedElements.forEach((rem) => rem.removeAttribute("disabled"));
@@ -39,6 +40,7 @@ const setBudget = () => {
     money += parseInt(setBudgetInput.value);
     yourBudget.textContent = money + currency;
     blockedElements.forEach((rem) => rem.setAttribute("disabled", "disabled"));
+    filterArr(operations);
     return setBudgetInput.value;
   } else {
     alert("Please insert your primary budget");
@@ -106,7 +108,11 @@ const filter = (type) => {
 };
 
 const filterArr = (arr) => {
-  operationsDiv.innerHTML = tableHeader;
+  if (arr.length > 0) {
+    operationsDiv.innerHTML = tableHeader;
+  } else {
+    operationsDiv.innerHTML = "";
+  }
   for (let i = 0; i < arr.length; i++) {
     operationsDiv.innerHTML += `<tr><td>${arr[i].date}</td><td>${
       arr[i].title
