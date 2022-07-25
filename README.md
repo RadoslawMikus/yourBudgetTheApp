@@ -1,5 +1,8 @@
 ## yourBudget - the App!
 
+### Repository: https://github.com/davidsmith931/yourBudgetTheApp
+### Live Demo: https://davidsmith931.github.io/yourBudgetTheApp/
+
 Simple app helping to track your budget
 
 ### 💰 &nbsp; Budget
